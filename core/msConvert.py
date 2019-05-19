@@ -24,7 +24,7 @@ class msConvert(object):
         return input_command
 
     def __docker(self, path, command = ""):
-        docker_command = ("docker run --rm -v "
+        docker_command = ("docker run -u $(id -u):$(id -g) --rm -v "
                           "%s %s"
                           ":/data/ msconvert"
                           % (command, path))
