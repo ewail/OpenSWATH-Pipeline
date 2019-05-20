@@ -94,7 +94,7 @@ except getopt.GetoptError:
     ''')
     sys.exit()
 
-Op = OpenSWATH(infile,
+Op = OpenSWATH.OpenSWATH(infile,
                tr_file,
                tr_irt,
                out_osw,

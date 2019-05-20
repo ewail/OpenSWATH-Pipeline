@@ -73,7 +73,7 @@ except getopt.GetoptError:
     sys.exit()
 
 
-Ms = msConvert(infile, outfile)
+Ms = msConvert.msConvert(infile, outfile)
 path = gl.get_value('path')
 
 return_info = Ms.run(path)

@@ -87,6 +87,30 @@ else:
         # msconvert wiff
         if len(wiff) > 0 :
             gl.set_value("path", path)
+            # python msconvert.py -i *.wiff -o /your/data
+            if not os.path.exists(path + "/mzXML"):
+                os.makedirs(path + "/mzXML")
+            cmd = "python " + exec + "/msconvert.py -i " + path + "/*.wiff -o " + path + "/mzXML"
+            if (not os.system(cmd)) :
+                print("Status: (msconvert) failed!")
+                exit(0)
+
+        # msconvert raw
+        if len(raw) > 0 :
+            gl.set_value("path", path)
+            # python msconvert.py -i *.raw -o /your/data
+            if not os.path.exists(path + "/mzXML"):
+                os.makedirs(path + "/mzXML")
+            cmd = "python " + exec + "/msconvert.py -i " + path + "/*.raw -o " + path + "/mzXML"
+            if (not os.system(cmd)):
+                print("Status: (msconvert) failed!")
+                exit(0)
+
+
+        # openswath
+
+
+        # run openswath
 
 
     else:
