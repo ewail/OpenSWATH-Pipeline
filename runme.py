@@ -8,8 +8,6 @@ import getopt
 import glob
 
 
-from core import GlobaVar as gl
-
 menu = '''
 
     Welcome to Guomics proteins piplines!
@@ -81,36 +79,36 @@ else:
         wiff = glob.glob(path + "/*.wiff")
         raw = glob.glob(path + "/*.raw")
 
-        gl._init()
+        #gl._init()
         exec = os.path.dirname(__file__)
 
+        print("msConvert: total(wiff:" + str(len(wiff)) + ";Raw:" + str(len(raw)) + ")")
         # msconvert wiff
-        if len(wiff) > 0 :
-            gl.set_value("path", path)
+        if len(wiff) > 0 or len(raw) > 0:
             # python msconvert.py -i *.wiff -o /your/data
             if not os.path.exists(path + "/mzXML"):
                 os.makedirs(path + "/mzXML")
-            cmd = "python " + exec + "/msconvert.py -i " + path + "/*.wiff -o " + path + "/mzXML"
-            if (not os.system(cmd)) :
-                print("Status: (msconvert) failed!")
-                exit(0)
 
-        # msconvert raw
-        if len(raw) > 0 :
-            gl.set_value("path", path)
+            for file in wiff:
+                name = (os.path.basename(file)).split(".")[0] + ".mzXML"
+                print("Start analysis:" + name)
+                cmd = "python " + exec + "/msconvert.py -i " + file + " -o /data/mzXML/" + name
+                if (os.system(cmd)) :
+                    print("Status: (msconvert:wiff) failed!")
+                    exit(0)
             # python msconvert.py -i *.raw -o /your/data
-            if not os.path.exists(path + "/mzXML"):
-                os.makedirs(path + "/mzXML")
-            cmd = "python " + exec + "/msconvert.py -i " + path + "/*.raw -o " + path + "/mzXML"
-            if (not os.system(cmd)):
-                print("Status: (msconvert) failed!")
-                exit(0)
-
-
-        # openswath
-
+            for file in raw:
+                name = (os.path.basename(file)).split(".")[0] + ".mzXML"
+                print("Start analysis:" + name)
+                cmd = "python " + exec + "/msconvert.py -i " + file + " -o /data/mzXML/" + name
+                if (os.system(cmd)):
+                    print("Status: (msconvert:RAW) failed!")
+                    exit(0)
+            print("msconvert: all file was convert completed!")
 
         # run openswath
+        print("OpenSWATH:")
+
 
 
     else:

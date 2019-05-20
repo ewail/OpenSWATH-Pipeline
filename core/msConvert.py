@@ -13,8 +13,8 @@ class msConvert(object):
         self.outfile = outfile
 
     def __pase_command(self):
-        input_command = ("msconvert --mzXML "
-                         "%s "
+        input_command = (" wine msconvert --mzXML "
+                         "/data/%s "
                          "--32 "
                          "--mz32 "
                          "--inten32 "
@@ -24,18 +24,17 @@ class msConvert(object):
         return input_command
 
     def __docker(self, path, command = ""):
-        docker_command = ("docker run -u $(id -u):$(id -g) --rm -v "
-                          "%s %s"
-                          ":/data/ msconvert"
+        docker_command = ("docker run --rm -e WINEDEBUG=-all %s"
+                          "-v %s:/data/ msconvert"
                           % (command, path))
         return docker_command
 
     def run(self, path, extra=""):
         run_cmd = ("%s %s"
                    % (self.__docker(path, extra), self.__pase_command()))
-
-        return_info = os.popen(os.system(run_cmd))
-        return_info = "Guomics Lab: " + return_info
+        # print(run_cmd)
+        return_info = os.popen(run_cmd)
+        return_info= "Guomics Lab: " + '\n'.join(return_info.readlines())
 
         return return_info
 

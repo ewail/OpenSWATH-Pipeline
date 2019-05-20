@@ -3,6 +3,7 @@
 
 
 import sys
+import os
 import getopt
 
 from core import msConvert
@@ -72,10 +73,9 @@ except getopt.GetoptError:
     ''')
     sys.exit()
 
-
-Ms = msConvert.msConvert(infile, outfile)
-path = gl.get_value('path')
+gl._init()
+Ms = msConvert.msConvert(os.path.basename(infile), outfile)
+path = os.path.dirname(infile)
 
 return_info = Ms.run(path)
-
 gl.set_value("msConvert_log", return_info)

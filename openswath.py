@@ -102,6 +102,7 @@ Op = OpenSWATH.OpenSWATH(infile,
                mz_extraction_window,
                rt_extraction_window,
                command)
+gl._init()
 
 path = gl.get_value('path')
 return_info = Op.run(path)

@@ -84,8 +84,8 @@ class OpenSWATH(object):
         run_cmd = ("%s %s"
                    % (self.__docker(path, extra), self.__pase_command()))
 
-        return_info = os.popen(os.system(run_cmd))
-        return_info = "Guomics Lab: " + return_info
+        return_info = os.popen(run_cmd)
+        return_info= "Guomics Lab: " + '\n'.join(return_info.readlines())
 
         return return_info
 
