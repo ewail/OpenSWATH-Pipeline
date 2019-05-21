@@ -82,8 +82,9 @@ else:
         #gl._init()
         exec = os.path.dirname(__file__)
 
+        print("msConvert:")
         print("msConvert: total(wiff:" + str(len(wiff)) + ";Raw:" + str(len(raw)) + ")")
-        # msconvert wiff
+        # msConvert wiff
         if len(wiff) > 0 or len(raw) > 0:
             # python msconvert.py -i *.wiff -o /your/data
             if not os.path.exists(path + "/mzXML"):
@@ -106,9 +107,24 @@ else:
                     exit(0)
             print("msconvert: all file was convert completed!")
 
-        # run openswath
-        print("OpenSWATH:")
+        # Build Library
+        print("Build Library:")
 
+
+
+        # Run openswath
+        print("OpenSWATH:")
+        get_mzXML = glob.glob(path + "/mzXML/*.mzXML")
+        if len(get_mzXML) > 0:
+            pass
+        else:
+            print("Cannot find any mzXML file! Please check your data in Path:" + path)
+            exit(0)
+
+        # Run pyprophet
+
+
+        # Convert tsv file to peptides matrix
 
 
     else:

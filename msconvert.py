@@ -9,6 +9,9 @@ import getopt
 from core import msConvert
 from core import GlobaVar as gl
 
+
+DEBUG = False
+
 def comming():
     pass
 
@@ -74,6 +77,10 @@ except getopt.GetoptError:
     sys.exit()
 
 gl._init()
+
+if DEBUG:
+    gl.set_value("debug", DEBUG)
+
 Ms = msConvert.msConvert(os.path.basename(infile), outfile)
 path = os.path.dirname(infile)
 
