@@ -3,6 +3,7 @@
 
 
 import os
+from core import GlobaVar as gl
 
 class OpenSWATH(object):
     '''
@@ -22,7 +23,7 @@ class OpenSWATH(object):
     # @command
     #
     #
-    def __init__(self, infile, trfile, trirt, oswfile, threads=20, mz_window = 30, rt_window = 60, command=""):
+    def __init__(self, infile, trfile, trirt, oswfile, threads=20, mz_window = 30, rt_window = 600, command=""):
         self.infile = infile
         self.trfile = trfile
         self.trirt = trirt
@@ -84,10 +85,15 @@ class OpenSWATH(object):
         run_cmd = ("%s %s"
                    % (self.__docker(path, extra), self.__pase_command()))
 
-        return_info = os.popen(run_cmd)
-        return_info= "Guomics Lab: " + '\n'.join(return_info.readlines())
+        if gl.get_value("debug"):
+            print(run_cmd)
+            return_info = "DEBUG: " + run_cmd
+            return return_info
+        else:
+            return_info = os.popen(run_cmd)
+            return_info= "Guomics Lab: " + '\n'.join(return_info.readlines())
 
-        return return_info
+            return return_info
 
 
 if __name__ == "__main__":

@@ -80,7 +80,7 @@ else:
         raw = glob.glob(path + "/*.raw")
 
         #gl._init()
-        exec = os.path.dirname(__file__)
+        exep = os.path.dirname(__file__)
 
         print("msConvert:")
         print("msConvert: total(wiff:" + str(len(wiff)) + ";Raw:" + str(len(raw)) + ")")
@@ -93,7 +93,7 @@ else:
             for file in wiff:
                 name = (os.path.basename(file)).split(".")[0] + ".mzXML"
                 print("Start analysis:" + name)
-                cmd = "python " + exec + "/msconvert.py -i " + file + " -o /data/mzXML/" + name
+                cmd = "python " + exep + "/msconvert.py -i " + file + " -o /data/mzXML/" + name
                 if (os.system(cmd)) :
                     print("Status: (msconvert:wiff) failed!")
                     exit(0)
@@ -101,7 +101,7 @@ else:
             for file in raw:
                 name = (os.path.basename(file)).split(".")[0] + ".mzXML"
                 print("Start analysis:" + name)
-                cmd = "python " + exec + "/msconvert.py -i " + file + " -o /data/mzXML/" + name
+                cmd = "python " + exep + "/msconvert.py -i " + file + " -o /data/mzXML/" + name
                 if (os.system(cmd)):
                     print("Status: (msconvert:RAW) failed!")
                     exit(0)
@@ -109,14 +109,35 @@ else:
 
         # Build Library
         print("Build Library:")
+        # output /Lib
 
 
 
         # Run openswath
         print("OpenSWATH:")
+
         get_mzXML = glob.glob(path + "/mzXML/*.mzXML")
+
+        if not os.path.exists(path + "/Lib"):
+            print("Did you forget to add the Library file?(/your path/Lib/)")
+            exit(0)
+
+        get_PQP = glob.glob(path + "/Lib/*.PQP")
+
+        get_TraML = glob.glob(path + "/Lib/*.TraML")
+
         if len(get_mzXML) > 0:
-            pass
+            # openswath data
+            if not os.path.exists(path + "/output/openswath/"):
+                os.makedirs(path + "/output/openswath")
+            # python openswath.py -i demo.mzXML -o demo.osw -tr demo.PQP -irt demo.TraML -t 8
+            # python openswath.py -i demo.mzXML -o demo.osw -tr demo.PQP -irt demo.TraML -t 8 -m 30 -r 600
+            for file in get_mzXML:
+
+                name = os.path.basename(file)
+                print("Start analysis:" + name)
+                cmd = "python " + exep + "/openswath.py "
+
         else:
             print("Cannot find any mzXML file! Please check your data in Path:" + path)
             exit(0)
