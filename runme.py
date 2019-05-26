@@ -121,9 +121,10 @@ else:
         if not os.path.exists(path + "/Lib"):
             print("Did you forget to add the Library file?(/your path/Lib/)")
             exit(0)
-
+        # library
         get_PQP = glob.glob(path + "/Lib/*.PQP")
 
+        # RT library
         get_TraML = glob.glob(path + "/Lib/*.TraML")
 
         if len(get_mzXML) > 0:
