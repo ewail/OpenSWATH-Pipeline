@@ -35,23 +35,19 @@ class OpenSWATH(object):
         self.rt_window = rt_window
         self.command = command
         if self.command == "":
-            self.command = ("-min_upper_edge_dist 1 "
-                            "-mz_extraction_window_unit ppm "
+            self.command = ("-mz_extraction_window_unit ppm "
                             "-mz_extraction_window_ms1 20 "
                             "-mz_extraction_window_ms1_unit ppm "
-                            "-mz_correction_function "
-                            "regression_delta_ppm "
-                            "-use_ms1_traces -irt_mz_extraction_window 50 "
+                            "-use_ms1_traces "
+                            "-irt_mz_extraction_window 50 "
                             "-irt_mz_extraction_window_unit ppm "
                             "-RTNormalization:estimateBestPeptides "
-                            "-RTNormalization:alignmentMethod lowess "
                             "-RTNormalization:outlierMethod none "
                             "-Scoring:stop_report_after_feature 5 "
-                            "-Scoring:TransitionGroupPicker:compute_peak_quality false "
+                            "-Scoring:TransitionGroupPicker:compute_peak_quality true "
                             "-Scoring:Scores:use_ms1_mi "
                             "-Scoring:Scores:use_mi_score "
-                            "-batchSize 1000 "
-                            "-ms1_isotopes 3")
+                            "-batchSize 1000 ")
 
     def __pase_command(self):
         input_command = ("OpenSwathWorkflow "
@@ -60,6 +56,7 @@ class OpenSWATH(object):
                          "-tr_irt %s "
                          "-out_osw %s "
                          "-threads %s "
+                         "-outer_loop_threads 4 " # 20190801 Add
                          "-mz_extraction_window %s "
                          "-rt_extraction_window %s"
                          " %s" # other command

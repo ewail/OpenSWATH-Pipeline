@@ -25,7 +25,7 @@ menu ='''
     
     Web:http://www.guomics.com
     Date:20190516
-    Team:Tiannan Guo, Hao Chen, Tiansheng Zhu .etc
+    Team:Hao Chen, Tiansheng Zhu, @Guomics
     Ver:0.1
     
     Usage: python openswath.py [COMMAND]
