@@ -4,6 +4,8 @@
 
 import os
 from core import GlobaVar as gl
+from core import parameters
+
 
 class OpenSWATH(object):
     '''
@@ -23,7 +25,8 @@ class OpenSWATH(object):
     # @command
     #
     #
-    def __init__(self, infile, trfile, trirt, oswfile, threads=20, mz_window = 30, rt_window = 600, command=""):
+    def __init__(self, infile, trfile, trirt, oswfile, threads=20,
+                 mz_window = parameters.MZ_WINDOW, rt_window = parameters.RT_WINDOW, command=""):
         self.infile = infile
         self.trfile = trfile
         self.trirt = trirt
@@ -35,19 +38,7 @@ class OpenSWATH(object):
         self.rt_window = rt_window
         self.command = command
         if self.command == "":
-            self.command = ("-mz_extraction_window_unit ppm "
-                            "-mz_extraction_window_ms1 20 "
-                            "-mz_extraction_window_ms1_unit ppm "
-                            "-use_ms1_traces "
-                            "-irt_mz_extraction_window 50 "
-                            "-irt_mz_extraction_window_unit ppm "
-                            "-RTNormalization:estimateBestPeptides "
-                            "-RTNormalization:outlierMethod none "
-                            "-Scoring:stop_report_after_feature 5 "
-                            "-Scoring:TransitionGroupPicker:compute_peak_quality true "
-                            "-Scoring:Scores:use_ms1_mi "
-                            "-Scoring:Scores:use_mi_score "
-                            "-batchSize 1000 ")
+            self.command = parameters.COMMAND
 
     def __pase_command(self):
         input_command = ("OpenSwathWorkflow "
@@ -72,7 +63,8 @@ class OpenSWATH(object):
         return input_command
 
     def __docker(self, path, command = ""):
-        docker_command = ("docker run -u $(id -u):$(id -g) --rm -v "
+
+        docker_command = ("docker run --rm -v"
                           "%s %s"
                           ":/data/ openswath"
                           % (command, path))
@@ -81,7 +73,7 @@ class OpenSWATH(object):
     def run(self, path, extra=""):
         run_cmd = ("%s %s"
                    % (self.__docker(path, extra), self.__pase_command()))
-
+        print(run_cmd)
         if gl.get_value("debug"):
             print(run_cmd)
             return_info = "DEBUG: " + run_cmd

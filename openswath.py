@@ -4,6 +4,7 @@
 
 import sys
 import getopt
+import os
 
 from core import OpenSWATH
 from core import GlobaVar as gl
@@ -47,14 +48,14 @@ menu ='''
 '''
 
 try:
-
+    # print(sys.argv[1:])
     opts, args = getopt.getopt(sys.argv[1:],
-                               "-h-i:-tr:-irt:-o:-t:-m:-r:-c:",
+                               "-h:-i:-p:-t:-o:-s:-m:-r:-c:",
                                ["help",
                                 "infile=",
-                                "tr_file=",
-                                "tr_irt=",
-                                "out_osw=",
+                                "tr_file=",#*.PQP
+                                "tr_irt=", #TraML
+                                "out_osw=", #*.osw
                                 "threads=",
                                 "mz_extraction_window",
                                 "rt_extraction_window",
@@ -66,14 +67,14 @@ try:
             sys.exit()
         elif op in ("-i", "--infile"):
             infile = value
+        elif op in ("-p", "--tr_file"):
+            tr_file = value
+        elif op in ("-t", "--tr_irt"):
+            tr_irt = value
         elif op in ("-o", "--out_osw"):
             out_osw = value
-        elif op in ("-tr", "--tr_file"):
-            tr_file = value
-        elif op in ("-irt", "--tr_irt"):
-            tr_irt = value
-        elif op in ("-t", "--threads"):
-            threads = value
+        elif op in ("-s", "--threads"):
+            threads = int(value)
         elif op in ("-m", "--mz_extraction_window"):
             mz_extraction_window = value
         elif op in ("-r", "--rt_extraction_window"):
@@ -94,17 +95,20 @@ except getopt.GetoptError:
     ''')
     sys.exit()
 
+mz_extraction_window = ""
 Op = OpenSWATH.OpenSWATH(infile,
                tr_file,
                tr_irt,
                out_osw,
-               threads,
-               mz_extraction_window,
-               rt_extraction_window,
-               command)
+               threads)
+               # threads,
+               # mz_extraction_window,
+               # rt_extraction_window,
+               # command)
 gl._init()
 
-path = gl.get_value('path')
+path = os.path.dirname(infile)
+# print(path)
 return_info = Op.run(path)
 
-gl.set_value("Openswath_log", return_info)
+# gl.set_value("Openswath_log", return_info)
