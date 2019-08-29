@@ -14,7 +14,7 @@ class msConvert(object):
         self.outfile = outfile
 
     def __pase_command(self):
-        input_command = (" wine msconvert --mzXML "
+        input_command = ("wine msconvert --mzXML "
                          "/data/%s "
                          "--32 "
                          "--mz32 "
@@ -34,7 +34,7 @@ class msConvert(object):
     def run(self, path, extra=""):
         run_cmd = ("%s %s"
                    % (self.__docker(path, extra), self.__pase_command()))
-
+        print(run_cmd)
         if gl.get_value("debug"):
             print(run_cmd)
             return_info = "DEBUG: " + run_cmd

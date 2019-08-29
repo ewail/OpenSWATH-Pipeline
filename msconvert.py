@@ -17,7 +17,6 @@ def comming():
 
 
 menu = '''
-
     Welcome to Guomics msConvert piplines!
 
     msconvert is a command line tool for converting between various 
@@ -44,7 +43,6 @@ menu = '''
 '''
 
 try:
-
     opts, args = getopt.getopt(sys.argv[1:],
                                "-h-i:-o:-c:",
                                ["help",
@@ -65,6 +63,7 @@ try:
         else:
             print(menu)
             sys.exit()
+
 except getopt.GetoptError:
     print('''
     Error! Please use `python msconvert.py --help` for detail.
