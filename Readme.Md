@@ -3,7 +3,7 @@
    
 Date : 20190520 
 
-Author : Hao Chen, Tiansheng Zhu, @Guomics 
+Author : Hao Chen, Chao Xu, Tiansheng Zhu, @Guomics 
 
 Web: https://www.guomics.com 
 

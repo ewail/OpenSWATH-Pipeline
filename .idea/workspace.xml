@@ -2,23 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="933afd2d-9c78-42e7-a39e-3c49731a8701" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/core/parameters.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prophet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Pipelines.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Pipelines.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Readme.Md" beforeDir="false" afterPath="$PROJECT_DIR$/Readme.Md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/Check.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/Check.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/CreateLib.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/CreateLib.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/GlobaVar.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/GlobaVar.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/OpenSWATH.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/OpenSWATH.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/Prophet.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/Prophet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/Verify" beforeDir="false" afterPath="$PROJECT_DIR$/core/Verify" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/msConvert.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/msConvert.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msconvert.py" beforeDir="false" afterPath="$PROJECT_DIR$/msconvert.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/openswath.py" beforeDir="false" afterPath="$PROJECT_DIR$/openswath.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runme.py" beforeDir="false" afterPath="$PROJECT_DIR$/runme.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,12 +27,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/runme.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-323">
+              <caret line="97" column="35" selection-start-line="97" selection-start-column="35" selection-end-line="97" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Readme.Md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor>
-                <caret column="20" selection-start-column="20" selection-end-column="20" />
+              <first_editor relative-caret-position="54">
+                <caret line="3" column="16" lean-forward="true" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
               </first_editor>
               <second_editor />
             </state>
@@ -187,7 +181,7 @@
       <workItem from="1558489374786" duration="1570000" />
       <workItem from="1558596294100" duration="2339000" />
       <workItem from="1567067038409" duration="220000" />
-      <workItem from="1567067262505" duration="105000" />
+      <workItem from="1567067262505" duration="767000" />
     </task>
     <task id="LOCAL-00001" summary="fixed:TypeError: 'module' object is not callable">
       <created>1558332336616</created>
@@ -217,11 +211,18 @@
       <option name="project" value="LOCAL" />
       <updated>1558859509075</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Update: Add pyprophet command by Chao Xu.🤵">
+      <created>1567067540666</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1567067540666</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77976000" />
+    <option name="totallyTimeSpent" value="78638000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -249,8 +250,8 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.4984985" weight="0.32779622" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5010965" side_tool="true" weight="0.32861805" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4989035" weight="0.32543105" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5010965" side_tool="true" weight="0.32779622" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4989035" visible="true" weight="0.32447398" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.3297062" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -307,7 +308,8 @@
     <MESSAGE value="Update:msconvert Test.&#10;fixed:Docker command." />
     <MESSAGE value="Update: add pipeline comment, and make it easy to read." />
     <MESSAGE value="fixed：change &quot;exec&quot; to &quot;exep&quot;." />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed：change &quot;exec&quot; to &quot;exep&quot;." />
+    <MESSAGE value="Update: Add pyprophet command by Chao Xu." />
+    <option name="LAST_COMMIT_MESSAGE" value="Update: Add pyprophet command by Chao Xu." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Pipelines$OpenSWATH.coverage" NAME="install Coverage Results" MODIFIED="1557907853561" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -413,16 +415,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/runme.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1075">
-          <caret line="53" column="7" selection-start-line="53" selection-start-column="7" selection-end-line="53" selection-end-column="7" />
-          <folding>
-            <element signature="e#30#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -433,11 +425,18 @@
     <entry file="file://$PROJECT_DIR$/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/runme.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-323">
+          <caret line="97" column="35" selection-start-line="97" selection-start-column="35" selection-end-line="97" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Readme.Md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor>
-            <caret column="20" selection-start-column="20" selection-end-column="20" />
+          <first_editor relative-caret-position="54">
+            <caret line="3" column="16" lean-forward="true" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
           </first_editor>
           <second_editor />
         </state>
